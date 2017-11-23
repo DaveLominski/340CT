@@ -27,7 +27,7 @@ class logIn:
             self.ui.errorMsg("Error", "One of the fields is empty")
 
         else:
-            if self.getUsername() in str(dbConnection.userDB().getData("SELECT username FROM users WHERE username ='%s'" % self.getUsername())):
+            if self.getUsername() == str(dbConnection.userDB().getData("SELECT username FROM users WHERE username ='%s'" % self.getUsername())):
                 if self.getPassword() == str(dbConnection.userDB().getData("SELECT password FROM users WHERE username = '%s'" % self.getUsername())):
                     self.ui.successMsg("Success", "You have been logged in")
 

@@ -50,5 +50,14 @@ class itemDB:
         except:
             pass
 
+    def getOneData(self,sql):
+        try:
+            self.cur.execute(sql)
+            return self.cur.fetchone()[0]
+        except:
+            pass
+
+
+
     def closeDB(self):
         self.conn.close()

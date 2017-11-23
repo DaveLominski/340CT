@@ -7,6 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui
+from PyQt4.Qt import *
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -22,7 +23,7 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-class Ui_MainWindow(object):
+class Ui_updateStockWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.resize(1045, 726)
@@ -53,27 +54,27 @@ class Ui_MainWindow(object):
         font.setKerning(True)
         self.smartMartLabel_2.setFont(font)
         self.smartMartLabel_2.setObjectName(_fromUtf8("smartMartLabel_2"))
-        self.lineEdit = QtGui.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(427, 210, 191, 51))
-        self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
-        self.lineEdit_2 = QtGui.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(210, 310, 191, 51))
-        self.lineEdit_2.setObjectName(_fromUtf8("lineEdit_2"))
-        self.lineEdit_3 = QtGui.QLineEdit(self.centralwidget)
-        self.lineEdit_3.setGeometry(QtCore.QRect(210, 390, 191, 51))
-        self.lineEdit_3.setObjectName(_fromUtf8("lineEdit_3"))
-        self.lineEdit_4 = QtGui.QLineEdit(self.centralwidget)
-        self.lineEdit_4.setGeometry(QtCore.QRect(650, 390, 191, 51))
-        self.lineEdit_4.setObjectName(_fromUtf8("lineEdit_4"))
-        self.lineEdit_5 = QtGui.QLineEdit(self.centralwidget)
-        self.lineEdit_5.setGeometry(QtCore.QRect(650, 310, 191, 51))
-        self.lineEdit_5.setObjectName(_fromUtf8("lineEdit_5"))
-        self.lineEdit_6 = QtGui.QLineEdit(self.centralwidget)
-        self.lineEdit_6.setGeometry(QtCore.QRect(650, 470, 191, 51))
-        self.lineEdit_6.setObjectName(_fromUtf8("lineEdit_6"))
-        self.lineEdit_7 = QtGui.QLineEdit(self.centralwidget)
-        self.lineEdit_7.setGeometry(QtCore.QRect(210, 470, 191, 51))
-        self.lineEdit_7.setObjectName(_fromUtf8("lineEdit_7"))
+        self.itemID = QtGui.QLineEdit(self.centralwidget)
+        self.itemID.setGeometry(QtCore.QRect(420, 210, 191, 51))
+        self.itemID.setObjectName(_fromUtf8("itemID"))
+        self.itemName = QtGui.QLineEdit(self.centralwidget)
+        self.itemName.setGeometry(QtCore.QRect(210, 310, 191, 51))
+        self.itemName.setObjectName(_fromUtf8("itemName"))
+        self.itemPrice = QtGui.QLineEdit(self.centralwidget)
+        self.itemPrice.setGeometry(QtCore.QRect(210, 390, 191, 51))
+        self.itemPrice.setObjectName(_fromUtf8("itemPrice"))
+        self.itemMin = QtGui.QLineEdit(self.centralwidget)
+        self.itemMin.setGeometry(QtCore.QRect(650, 390, 191, 51))
+        self.itemMin.setObjectName(_fromUtf8("itemMin"))
+        self.itemArrDate = QtGui.QLineEdit(self.centralwidget)
+        self.itemArrDate.setGeometry(QtCore.QRect(650, 310, 191, 51))
+        self.itemArrDate.setObjectName(_fromUtf8("itemArrDate"))
+        self.itemMax = QtGui.QLineEdit(self.centralwidget)
+        self.itemMax.setGeometry(QtCore.QRect(650, 470, 191, 51))
+        self.itemMax.setObjectName(_fromUtf8("itemMax"))
+        self.itemQty = QtGui.QLineEdit(self.centralwidget)
+        self.itemQty.setGeometry(QtCore.QRect(210, 470, 191, 51))
+        self.itemQty.setObjectName(_fromUtf8("itemQty"))
         self.smartMartLabel_3 = QtGui.QLabel(self.centralwidget)
         self.smartMartLabel_3.setGeometry(QtCore.QRect(330, 220, 91, 31))
         font = QtGui.QFont()
@@ -165,15 +166,15 @@ class Ui_MainWindow(object):
         font.setKerning(True)
         self.smartMartLabel_9.setFont(font)
         self.smartMartLabel_9.setObjectName(_fromUtf8("smartMartLabel_9"))
-        self.pushButton = QtGui.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(457, 560, 131, 41))
+        self.updateBtn = QtGui.QPushButton(self.centralwidget)
+        self.updateBtn.setGeometry(QtCore.QRect(457, 560, 131, 41))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Segoe UI Black"))
         font.setPointSize(17)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton.setFont(font)
-        self.pushButton.setObjectName(_fromUtf8("pushButton"))
+        self.updateBtn.setFont(font)
+        self.updateBtn.setObjectName(_fromUtf8("updateBtn"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1045, 21))
@@ -182,6 +183,14 @@ class Ui_MainWindow(object):
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
         MainWindow.setStatusBar(self.statusbar)
+        self.smartMartLabel.setBuddy(self.itemID)
+        self.smartMartLabel_3.setBuddy(self.itemID)
+        self.smartMartLabel_4.setBuddy(self.itemName)
+        self.smartMartLabel_5.setBuddy(self.itemMax)
+        self.smartMartLabel_6.setBuddy(self.itemMin)
+        self.smartMartLabel_7.setBuddy(self.itemPrice)
+        self.smartMartLabel_8.setBuddy(self.itemArrDate)
+        self.smartMartLabel_9.setBuddy(self.itemQty)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -197,14 +206,39 @@ class Ui_MainWindow(object):
         self.smartMartLabel_7.setText(_translate("MainWindow", "Price", None))
         self.smartMartLabel_8.setText(_translate("MainWindow", "Arrival Date", None))
         self.smartMartLabel_9.setText(_translate("MainWindow", "Quantity", None))
-        self.pushButton.setText(_translate("MainWindow", "Update", None))
+        self.updateBtn.setText(_translate("MainWindow", "Update", None))
+
+    '''Error  message box, that shows up if there is an error'''
+
+    def errorMsg(self, title, message):
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Critical)
+
+        msg.setText(title)
+        msg.setInformativeText(message)  # Sets the information inside the box
+        msg.setWindowTitle(title)  # Sets the title of the message box
+        msg.setStandardButtons(QMessageBox.Ok)
+        msg.exec_()
+
+    '''Success message box that shows up if the customer has been successfully removed from the database'''
+
+    def successMsg(self, title, message):
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+
+        msg.setText(title)
+        msg.setInformativeText(message)  # Sets the information inside the box
+        msg.setWindowTitle(title)  # Sets the title of the message box
+        msg.setStandardButtons(QMessageBox.Ok)
+
+        msg.exec_()
 
 
 if __name__ == "__main__":
     import sys
     app = QtGui.QApplication(sys.argv)
     MainWindow = QtGui.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_updateStockWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
