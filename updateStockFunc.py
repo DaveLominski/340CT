@@ -1,7 +1,7 @@
 import updateStock
 import dbConnection
 import sys
-
+import popUpBroker
 
 
 
@@ -9,6 +9,7 @@ class updateStocks:
 
     def __init__(self):
         self.ui = updateStock.Ui_updateStockWindow()
+        self.pop = popUpBroker.popUp()
         app = updateStock.QtGui.QApplication(sys.argv)
         MainWindow = updateStock.QtGui.QMainWindow()
         self.ui.setupUi(MainWindow)
@@ -46,7 +47,7 @@ class updateStocks:
         if self.getID() ==  str(dbConnection.itemDB().getOneData("SELECT id FROM items WHERE id = '%s'" % self.getID())):
 
             if self.getName() == ''and self.getPrice() == '' and self.getQty() == '' and self.getMin() == '' and self.getMax() == '' and self.getArrDate() == '':
-                self.ui.errorMsg("ERROR", "No data inputted, try again")
+                self.pop.errorMsg("ERROR", "No data inputted, try again")
             else:
 
                 if self.getName() != '':
@@ -79,7 +80,7 @@ class updateStocks:
 
 
         else:
-            self.ui.errorMsg("Error", "The item ID does not exist in the database")
+            self.pop.errorMsg("Error", "The item ID does not exist in the database")
 
 
 

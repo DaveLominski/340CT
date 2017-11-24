@@ -113,30 +113,7 @@ class Ui_logInWindow(object):
         self.passwordLabel.setText(_translate("logInWindow", "Password", None))
         self.logInButton.setText(_translate("logInWindow", "Log-in", None))
 
-    '''Error  message box, that shows up if there is an error'''
 
-    def errorMsg(self, title, message):
-        msg = QMessageBox()
-        msg.setIcon(QMessageBox.Critical)
-
-        msg.setText(title)
-        msg.setInformativeText(message)  # Sets the information inside the box
-        msg.setWindowTitle(title)  # Sets the title of the message box
-        msg.setStandardButtons(QMessageBox.Ok)
-        msg.exec_()
-
-    '''Success message box that shows up if the customer has been successfully removed from the database'''
-
-    def successMsg(self, title, message):
-        msg = QMessageBox()
-        msg.setIcon(QMessageBox.Information)
-
-        msg.setText(title)
-        msg.setInformativeText(message)  # Sets the information inside the box
-        msg.setWindowTitle(title)  # Sets the title of the message box
-        msg.setStandardButtons(QMessageBox.Ok)
-
-        msg.exec_()
 
 if __name__ == "__main__":
     import sys

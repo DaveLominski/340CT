@@ -208,30 +208,7 @@ class Ui_updateStockWindow(object):
         self.smartMartLabel_9.setText(_translate("MainWindow", "Quantity", None))
         self.updateBtn.setText(_translate("MainWindow", "Update", None))
 
-    '''Error  message box, that shows up if there is an error'''
 
-    def errorMsg(self, title, message):
-        msg = QMessageBox()
-        msg.setIcon(QMessageBox.Critical)
-
-        msg.setText(title)
-        msg.setInformativeText(message)  # Sets the information inside the box
-        msg.setWindowTitle(title)  # Sets the title of the message box
-        msg.setStandardButtons(QMessageBox.Ok)
-        msg.exec_()
-
-    '''Success message box that shows up if the customer has been successfully removed from the database'''
-
-    def successMsg(self, title, message):
-        msg = QMessageBox()
-        msg.setIcon(QMessageBox.Information)
-
-        msg.setText(title)
-        msg.setInformativeText(message)  # Sets the information inside the box
-        msg.setWindowTitle(title)  # Sets the title of the message box
-        msg.setStandardButtons(QMessageBox.Ok)
-
-        msg.exec_()
 
 
 if __name__ == "__main__":

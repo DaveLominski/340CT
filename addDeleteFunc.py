@@ -1,6 +1,7 @@
 import addDelete
 import sys
 import dbConnection
+import popUpBroker
 
 
 
@@ -10,6 +11,7 @@ class addDeleteItems():
 
 
         self.ui = addDelete.Ui_addDeleteWindow()
+        self.pop = popUpBroker.popUp()
         app = addDelete.QtGui.QApplication(sys.argv)
         MainWindow = addDelete.QtGui.QMainWindow()
         self.ui.setupUi(MainWindow)
@@ -31,21 +33,21 @@ class addDeleteItems():
 
         if self.addDelete() == 'Add Product':
             if self.getID() == '' or self.getName() == '':
-                self.ui.errorMsg("Error", "Missing Data")
+                self.pop.errorMsg("Error", "Missing Data")
 
             else:
                 dbConnection.itemDB().query("INSERT INTO items (id, name) VALUES ('%s', '%s')" % (self.getID(), self.getName()))
 
         elif self.addDelete() == 'Delete Product':
             if self.getName() != '':
-                self.ui.errorMsg("Error", "Only enter an item ID!")
+                self.pop.errorMsg("Error", "Only enter an item ID!")
 
             elif self.getID() == '':
-                self.ui.errorMsg("Error", "Please enter an item ID!")
+                self.pop.errorMsg("Error", "Please enter an item ID!")
 
             else:
                 if self.getID() != str(dbConnection.itemDB().getOneData("SELECT id FROM items WHERE id = '%s'" % self.getID())):
-                    self.ui.errorMsg("Error", "Item ID not found in the database!")
+                    self.pop.errorMsg("Error", "Item ID not found in the database!")
 
                 else:
                     dbConnection.itemDB().query("DELETE FROM items WHERE id = '%s'" % (self.getID()))
