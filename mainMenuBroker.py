@@ -50,6 +50,3 @@ class mainMenuBroker:
             self.ui.quitBtn.setCheckable(False)
             self.ui.quitBtn.setCheckable(True)
 
-
-
-mainMenuBroker()

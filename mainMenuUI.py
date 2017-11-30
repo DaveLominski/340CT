@@ -3,7 +3,7 @@
     any name conflicts between the files'''
 
 from PyQt4 import QtCore, QtGui
-from viewStockUI import Ui_viewStockWindow
+
 
 
 try:
